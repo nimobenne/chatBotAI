@@ -1,3 +1,5 @@
+# app.py - A Flask web application for a customer service chatbot using OpenAI or Ollama. Created by Nimo Benne
+
 import os
 from dataclasses import dataclass
 from typing import Any
