@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ assistant_name }} - Customer Support</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="hero__copy">
+          <p class="hero__eyebrow">{{ company_name }}</p>
+          <h1>{{ assistant_name }} is here to help.</h1>
+          <p class="hero__lead">
+            An AI customer support agent that resolves issues, gathers details, and
+            escalates to a human when needed.
+          </p>
+          <div class="hero__meta">
+            <div>
+              <span>Channels</span>
+              <strong>Web chat · Email escalation · Phone follow-up</strong>
+            </div>
+            <div>
+              <span>Availability</span>
+              <strong>Always on</strong>
+            </div>
+          </div>
+        </div>
+        <div class="hero__panel">
+          <div class="assistant-badge">
+            <div class="assistant-badge__dot"></div>
+            <div>
+              <p>Online</p>
+              <span>Average response 2s</span>
+            </div>
+          </div>
+          <div class="assistant-insight">
+            <p>Last 30 mins</p>
+            <strong>21 conversations</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="chat-shell">
+        <section class="chat">
+          <div class="chat__header">
+            <div>
+            <h2>Live chat with {{ assistant_name }}</h2>
+            <p>Ask anything about orders, billing, or product setup.</p>
+            </div>
+            <button class="ghost" id="reset">New conversation</button>
+          </div>
+          <div class="chat__messages" id="messages"></div>
+          <form class="chat__composer" id="composer">
+            <input
+              type="text"
+              id="input"
+              name="message"
+              placeholder="Tell us what you need help with..."
+              autocomplete="off"
+            />
+            <button type="submit">Send</button>
+          </form>
+        </section>
+        <aside class="sidebar">
+          <div class="card">
+            <h3>Escalation rules</h3>
+            <ul>
+              <li>Urgent issues route to human support.</li>
+              <li>Billing disputes trigger escalation.</li>
+              <li>Account access gets priority.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Demo mode</h3>
+            <p class="card__sub">
+              Run a short scripted conversation to show escalation behavior.
+            </p>
+            <button class="demo" id="demo">
+              Run demo scenario
+            </button>
+          </div>
+          <div class="card">
+            <h3>Suggested prompts</h3>
+            <button class="prompt" data-prompt="I was charged twice on my invoice.">
+              Billing issue
+            </button>
+            <button class="prompt" data-prompt="I cannot access my account.">
+              Account access
+            </button>
+            <button class="prompt" data-prompt="How do I change my plan?">
+              Change plan
+            </button>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
