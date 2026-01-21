@@ -28,8 +28,8 @@ copy .env.example .env
 
 ```
 OPENAI_API_KEY=your_key_here
-OLLAMA_MODEL=llama3.1
-OLLAMA_URL=http://localhost:11434/api/chat
+OLLAMA_MODEL=gpt-oss:120b
+OLLAMA_URL=https://ollama.com/api/chat
 OLLAMA_API_KEY=
 AGENT_NAME=Kikibot
 COMPANY_NAME=Kikibot Support
@@ -56,10 +56,14 @@ If you prefer to run AI locally without paying for an API key:
 2. Download a model:
 
 ```bash
-ollama run llama3.1
+ollama run gpt-oss:120b
 ```
 
-3. Leave `OPENAI_API_KEY` empty in `.env` and keep the default OLLAMA settings.
+3. Leave `OPENAI_API_KEY` empty in `.env` and set:
+
+```
+OLLAMA_URL=http://localhost:11434/api/chat
+```
 
 ## Ollama Cloud (hosted API)
 If you want to use Ollama's hosted API instead of local models:
