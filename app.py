@@ -27,6 +27,7 @@ support_phone = os.environ.get("ESCALATION_PHONE", "+1-555-0100")
 openai_model = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
 ollama_model = os.environ.get("OLLAMA_MODEL", "llama3.1")
 ollama_url = os.environ.get("OLLAMA_URL", "http://localhost:11434/api/chat")
+ollama_api_key = os.environ.get("OLLAMA_API_KEY")
 openai_api_key = os.environ.get("OPENAI_API_KEY")
 
 openai_client = OpenAI(api_key=openai_api_key) if OpenAI and openai_api_key else None
@@ -54,7 +55,10 @@ def fetch_ollama_reply(messages: list[dict[str, str]]) -> str:
         "messages": messages,
         "stream": False,
     }
-    response = requests.post(ollama_url, json=payload, timeout=30)
+    headers = {}
+    if ollama_api_key:
+        headers["Authorization"] = f"Bearer {ollama_api_key}"
+    response = requests.post(ollama_url, json=payload, headers=headers, timeout=30)
     response.raise_for_status()
     data: dict[str, Any] = response.json()
     message = data.get("message", {})

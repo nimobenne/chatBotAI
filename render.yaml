@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: kikibot-chat
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
+      - key: OLLAMA_MODEL
+        value: llama3.1:8b
+      - key: OLLAMA_URL
+        value: https://ollama.com/api/chat
+      - key: OLLAMA_API_KEY
+        sync: false
+      - key: AGENT_NAME
+        value: Kikibot
+      - key: COMPANY_NAME
+        value: Kikibot Support
+      - key: ESCALATION_EMAIL
+        value: support@example.com
+      - key: ESCALATION_PHONE
+        value: +1-555-0100

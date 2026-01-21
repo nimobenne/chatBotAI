@@ -30,6 +30,7 @@ copy .env.example .env
 OPENAI_API_KEY=your_key_here
 OLLAMA_MODEL=llama3.1
 OLLAMA_URL=http://localhost:11434/api/chat
+OLLAMA_API_KEY=
 AGENT_NAME=Kikibot
 COMPANY_NAME=Kikibot Support
 ESCALATION_EMAIL=support@example.com
@@ -59,6 +60,17 @@ ollama run llama3.1
 ```
 
 3. Leave `OPENAI_API_KEY` empty in `.env` and keep the default OLLAMA settings.
+
+## Ollama Cloud (hosted API)
+If you want to use Ollama's hosted API instead of local models:
+
+1. Create an API key: https://ollama.com/settings/keys
+2. Update `.env`:
+
+```
+OLLAMA_URL=https://ollama.com/api/chat
+OLLAMA_API_KEY=your_ollama_key
+```
 
 ## Project layout
 - `app.py` - Flask API + HTML entrypoint
